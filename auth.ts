@@ -40,7 +40,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           .fetch(AUTHOR_BY_GITHUB_ID_QUERY, { id: profile?.id });
 
         // token.id = user?._id;
-        token.accessToken = account.access_token
+        token.accessToken = account.access_token;
         token.id = user?._id;
       }
 
@@ -49,7 +49,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
     async session({ session, token }) {
       // Object.assign(session, { id: token.id });
-      session.accessToken = token.accessToken
+      session.accessToken = token.accessToken;
       session.user._id = token.id;
 
       return session;
